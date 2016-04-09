@@ -14,6 +14,8 @@ namespace HackTrip.Adapter.Data
             {
                 TripCollection tc = new TripCollection();
                 tc.Origin = model.Origin;
+                tc.Topic = model.Topic;
+                tc.Destination = model.Destination;
                 de.TripCollections.Add(tc);
                 var i = de.SaveChanges();
 
@@ -28,7 +30,11 @@ namespace HackTrip.Adapter.Data
                             SegmentType = item.SegmentType,
                             Posi = item.Posi,
                             Index = item.Index,
-                            CostSeconds = item.CostSeconds
+                            CostSeconds = item.CostSeconds,
+                            Destination = item.Destination,
+                            Distance = item.Distance,
+                            Origin = item.Origin,
+                           
                         };
                         segment.TripID = tc.TripId;
                         de.TripSegments.Add(segment);

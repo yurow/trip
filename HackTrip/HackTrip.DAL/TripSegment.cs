@@ -22,5 +22,8 @@ namespace HackTrip.DAL
         public string Posi { get; set; }
         public Nullable<int> Index { get; set; }
         public long TripID { get; set; }
+        public string Origin { get; set; }
+        public string Destination { get; set; }
+        public Nullable<decimal> Distance { get; set; }
     }
 }
