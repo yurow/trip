@@ -40,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestMap.cs" />
+    <Compile Include="ResquestMap.cs" />
+    <Compile Include="ResultModel.cs" />
     <Compile Include="TestPostModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
