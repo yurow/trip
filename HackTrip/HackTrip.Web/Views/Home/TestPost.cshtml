@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.List.Oderby(x => x.Index))
+            @foreach (var item in Model.Segments.OrderBy(x => x.Index))
             {
             <tr>
                 <td>@item.Topic</td>
