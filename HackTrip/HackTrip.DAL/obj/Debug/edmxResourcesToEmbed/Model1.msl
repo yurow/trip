@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
+    <EntitySetMapping Name="TripCollections">
+      <EntityTypeMapping TypeName="IsTypeOf(Database1Model.TripCollection)">
+        <MappingFragment StoreEntitySet="TripCollections">
+          <ScalarProperty Name="Topic" ColumnName="Topic" />
+          <ScalarProperty Name="TripId" ColumnName="TripId" />
+          <ScalarProperty Name="Origin" ColumnName="Origin" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+          <ScalarProperty Name="OriginPosi" ColumnName="OriginPosi" />
+          <ScalarProperty Name="DestinationPosi" ColumnName="DestinationPosi" />
+          <ScalarProperty Name="OriginTime" ColumnName="OriginTime" />
+          <ScalarProperty Name="DestinationTime" ColumnName="DestinationTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TripSegments">
+      <EntityTypeMapping TypeName="IsTypeOf(Database1Model.TripSegment)">
+        <MappingFragment StoreEntitySet="TripSegments">
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+          <ScalarProperty Name="Origin" ColumnName="Origin" />
+          <ScalarProperty Name="SegmentID" ColumnName="SegmentID" />
+          <ScalarProperty Name="SegmentType" ColumnName="SegmentType" />
+          <ScalarProperty Name="Topic" ColumnName="Topic" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="CostSeconds" ColumnName="CostSeconds" />
+          <ScalarProperty Name="Posi" ColumnName="Posi" />
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="TripID" ColumnName="TripID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

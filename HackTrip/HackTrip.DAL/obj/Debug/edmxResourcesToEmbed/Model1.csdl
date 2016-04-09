@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TripCollections" EntityType="Database1Model.TripCollection" />
+    <EntitySet Name="TripSegments" EntityType="Database1Model.TripSegment" />
+  </EntityContainer>
+  <EntityType Name="TripCollection">
+    <Key>
+      <PropertyRef Name="TripId" />
+    </Key>
+    <Property Name="TripId" Type="Int64" Nullable="false" />
+    <Property Name="Origin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Destination" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OriginPosi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DestinationPosi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OriginTime" Type="DateTime" Precision="3" />
+    <Property Name="DestinationTime" Type="DateTime" Precision="3" />
+    <Property Name="Topic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TripSegment">
+    <Key>
+      <PropertyRef Name="SegmentID" />
+    </Key>
+    <Property Name="SegmentID" Type="Int64" Nullable="false" />
+    <Property Name="SegmentType" Type="Byte" />
+    <Property Name="Topic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="CostSeconds" Type="Int64" />
+    <Property Name="Posi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Index" Type="Int32" />
+    <Property Name="TripID" Type="Int64" Nullable="false" />
+    <Property Name="Origin" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Destination" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Distance" Type="Decimal" Precision="18" Scale="6" />
+  </EntityType>
+</Schema>

@@ -1,6 +1,7 @@
 ﻿using HackTrip.Adapter.AMapAPI;
 using HackTrip.Adapter.AMapAPI.Response;
 using HackTrip.Controllers.Models;
+using HackTrip.Controllers.Models.WebBo;
 using HackTrip.Models;
 using System;
 using System.Collections.Generic;
@@ -99,6 +100,7 @@ namespace HackTrip.Controllers
             /*
             排序
              */
+           // new TripDataBo().AddTripData(list);
             return list;
 
 
