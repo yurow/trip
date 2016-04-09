@@ -11,14 +11,18 @@
             </span>
         </div>
     </div>
+    <div class="startSiteInput">
+        <input id="startSite" type="text" placeholder="请输入旅游开始地点" style="height:100%">
+    </div>
     <div class="buildBtn">
-        <button id="buildRoute" class="btn btn-block btn-success" type="button">生成旅游路线</button>
+        <button id="buildRoute" class="btn btn-block btn-success" type="button">生成旅游方案</button>
     </div>
 </div>
 <div id="panel"></div>
 <script>
     var model = {};
     model.SelectStateArray = [];
+    model.startSite = "";
     var lnglatXY=[121.498586, 31.239637]	//默认地址：上海市
     var map = new AMap.Map('container',{
         zoom: 10,
@@ -42,7 +46,7 @@
                     });
                     //关键字查询
                     placeSearch.search('', function (status, result) {
-                        //给panel每条右边加选择框
+                        
                         $("ul .poibox").on("click", function () {
                             if ($(this).css("background-Color") == "rgb(246, 246, 246)") {
                                 $(this).css("background-Color", "green");
@@ -61,6 +65,11 @@
     });
     
     $("#buildRoute").on("click", function () {
+        if (model.startSite == "" || $("#startSite").val() == "") {
+            $("#startSite").focus();
+            return;
+        }
+
         var tempForm = document.createElement("form");
         tempForm.id = "tempForm1";
         tempForm.method = "post";
@@ -71,6 +80,7 @@
         for (var i = 0; i < model.SelectStateArray.length; i++) {
             createInput("SelectStateArray["+i+"]", model.SelectStateArray[i], tempForm);
         }
+        createInput("startSite", model.startSite, tempForm);
         document.body.appendChild(tempForm);
         tempForm.submit();
     });
@@ -91,7 +101,6 @@
             //TODO: 使用geocoder 对象完成相关功能
             //地理编码
             geocoder.getLocation(cityName, function (status, result) {
-                console.log(result);
                 if (status === 'complete' && result.info === 'OK') {
                     map.setZoom(10);
                     map.setCenter(result.geocodes[0].location);
@@ -127,5 +136,16 @@
             });
         })
     });
+    //输入提示
+    var auto = new AMap.Autocomplete({
+        input: "startSite"
+    });
+    AMap.event.addListener(auto, "select", select);//注册监听，当选中某条记录时会触发
+    function select(e) {
+        console.log(e);
+        if (e.poi && e.poi.id) {
+            model.startSite = e.poi.id;
+        }
+    }
 
 </script>
