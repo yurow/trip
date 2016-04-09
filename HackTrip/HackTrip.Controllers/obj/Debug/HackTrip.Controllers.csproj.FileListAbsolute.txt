@@ -1,0 +1,1 @@
+E:\test\HackTrip\HackTrip.Controllers\obj\Debug\HackTrip.Controllers.csprojResolveAssemblyReference.cache
