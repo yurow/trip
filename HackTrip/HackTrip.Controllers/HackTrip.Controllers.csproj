@@ -46,7 +46,6 @@
     <Compile Include="HomeController.cs" />
     <Compile Include="Models\MapBo.cs" />
     <Compile Include="Models\MapEntity.cs" />
-    <Compile Include="Models\SelectStateArray.cs" />
     <Compile Include="Models\WebBo\ScheduleBo.cs" />
     <Compile Include="Models\WebBo\TripDataBo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

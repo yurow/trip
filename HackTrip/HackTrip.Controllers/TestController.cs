@@ -65,12 +65,5 @@ namespace HackTrip.Controllers
             var s = ts.GetTrip(tripid);
             return Json(s, JsonRequestBehavior.AllowGet);
         }
-
-        public ActionResult GetLastTrip()
-        {
-            TripScope ts = new TripScope();
-            var s = ts.GetLastTrip();
-            return Json(s, JsonRequestBehavior.AllowGet);
-        }
     }
 }

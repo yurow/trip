@@ -43,11 +43,25 @@ namespace HackTrip.Controllers.Models.WebBo
         //查询
         public TripDataModel GetTripData(long Id)
         {
-            var List = new TripDataModel();
-
             var result = new TripScope().GetTrip(Id);
             return result;
         }
+        //查询
+        public TripDataModel GetLastTrip()
+        {
+            var result = new TripScope().GetLastTrip();
+            return result;
+        }
+        ////查询
+        //public TripDataModel GetLastTrip(int test)
+        //{
+        //    var result = new TripDataModel() { Segments = new List<SegmentDataModel>() };
+        //    result.Segments.Add(new SegmentDataModel() { Destination = "2", Index = 2, SegmentID = 10 });
+        //    result.Segments.Add(new SegmentDataModel() { Destination = "2", Index = 1, SegmentID = 10 });
+        //    result.Segments = result.Segments.OrderBy(x => x.Index).ToList();
+        //    return result;
+            
+        //}
          
     }
 }

@@ -54,35 +54,7 @@ namespace HackTrip.Adapter.Data
                 IQueryable<TripCollection> trips = de.TripCollections.Where<TripCollection>(s => s.TripId == tripId);
                 IQueryable<TripSegment> segments = de.TripSegments.Where<TripSegment>(s => s.TripID == tripId);
                 var tc = trips.First();
-                TripDataModel tm = new TripDataModel() { TripId = tripId, Origin = tc.Origin, Topic = tc.Topic };
-                tm.Segments = new List<SegmentDataModel>();
-                foreach (var item in segments)
-                {
-                    tm.Segments.Add(new SegmentDataModel()
-                    {
-                        CostSeconds = item.CostSeconds,
-                        Index = item.Index,
-                        Posi = item.Posi,
-                        SegmentID = item.SegmentID,
-                        SegmentType = item.SegmentType,
-                        StartTime = item.StartTime,
-                        Topic = item.Topic,
-                        TripID = item.TripID
-                    });
-                }
-                return tm;
-            }
-        }
-
-
-        public TripDataModel GetLastTrip()
-        {
-            using (Database1Entities de = new Database1Entities())
-            {
-                TripCollection trip = de.TripCollections.OrderByDescending(x=>x.TripId).First();
-                IQueryable<TripSegment> segments = de.TripSegments.Where<TripSegment>(s => s.TripID == trip.TripId);
-
-                TripDataModel tm = new TripDataModel() { TripId = trip.TripId, Origin = trip.Origin, Topic = trip.Topic };
+                TripDataModel tm = new TripDataModel() { TripId = tripId, Origin = tc.Origin };
                 tm.Segments = new List<SegmentDataModel>();
                 foreach (var item in segments)
                 {
