@@ -4,37 +4,37 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Database1Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-  <EntityContainer Name="Database1ModelStoreContainer">
-    <EntitySet Name="TripCollections" EntityType="Database1Model.Store.TripCollections" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TripSegments" EntityType="Database1Model.Store.TripSegments" store:Type="Tables" Schema="dbo" />
-  </EntityContainer>
-  <EntityType Name="TripCollections">
-    <Key>
-      <PropertyRef Name="TripId" />
-    </Key>
-    <Property Name="TripId" Type="bigint" Nullable="false" />
-    <Property Name="Origin" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="Destination" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="OriginPosi" Type="nvarchar" Nullable="true" MaxLength="100" />
-    <Property Name="DestinationPosi" Type="nvarchar" Nullable="true" MaxLength="100" />
-    <Property Name="OriginTime" Type="datetime" Nullable="true" />
-    <Property Name="DestinationTime" Type="datetime" Nullable="true" />
-  </EntityType>
-  <EntityType Name="TripSegments">
-    <Key>
-      <PropertyRef Name="SegmentID" />
-    </Key>
-    <Property Name="SegmentID" Type="bigint" Nullable="false" />
-    <Property Name="SegmentType" Type="tinyint" Nullable="true" />
-    <Property Name="Topic" Type="nvarchar" Nullable="true" MaxLength="50" />
-    <Property Name="StartTime" Type="datetime" Nullable="true" />
-    <Property Name="CostSeconds" Type="bigint" Nullable="true" />
-    <Property Name="Posi" Type="nvarchar" Nullable="true" MaxLength="100" />
-    <Property Name="Index" Type="int" Nullable="true" />
-    <Property Name="TripID" Type="bigint" Nullable="false" />
-  </EntityType>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="TripCollections">
+          <Key>
+            <PropertyRef Name="TripId" />
+          </Key>
+          <Property Name="TripId" Type="bigint" Nullable="false" />
+          <Property Name="Origin" Type="nvarchar" MaxLength="50" />
+          <Property Name="Destination" Type="nvarchar" MaxLength="50" />
+          <Property Name="OriginPosi" Type="nvarchar" MaxLength="100" />
+          <Property Name="DestinationPosi" Type="nvarchar" MaxLength="100" />
+          <Property Name="OriginTime" Type="datetime" />
+          <Property Name="DestinationTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TripSegments">
+          <Key>
+            <PropertyRef Name="SegmentID" />
+          </Key>
+          <Property Name="SegmentID" Type="bigint" Nullable="false" />
+          <Property Name="SegmentType" Type="tinyint" />
+          <Property Name="Topic" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="CostSeconds" Type="bigint" />
+          <Property Name="Posi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Index" Type="int" />
+          <Property Name="TripID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Database1ModelStoreContainer">
+          <EntitySet Name="TripCollections" EntityType="Self.TripCollections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TripSegments" EntityType="Self.TripSegments" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Database1Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
