@@ -84,24 +84,21 @@
     <EntitySetMapping Name="TripCollections">
       <EntityTypeMapping TypeName="IsTypeOf(Database1Model.TripCollection)">
         <MappingFragment StoreEntitySet="TripCollections">
-          <ScalarProperty Name="Topic" ColumnName="Topic" />
-                <ScalarProperty Name="TripId" ColumnName="TripId" />
+          <ScalarProperty Name="TripId" ColumnName="TripId" />
           <ScalarProperty Name="Origin" ColumnName="Origin" />
           <ScalarProperty Name="Destination" ColumnName="Destination" />
           <ScalarProperty Name="OriginPosi" ColumnName="OriginPosi" />
           <ScalarProperty Name="DestinationPosi" ColumnName="DestinationPosi" />
           <ScalarProperty Name="OriginTime" ColumnName="OriginTime" />
           <ScalarProperty Name="DestinationTime" ColumnName="DestinationTime" />
+          <ScalarProperty Name="Topic" ColumnName="Topic" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TripSegments">
       <EntityTypeMapping TypeName="IsTypeOf(Database1Model.TripSegment)">
         <MappingFragment StoreEntitySet="TripSegments">
-          <ScalarProperty Name="Distance" ColumnName="Distance" />
-                <ScalarProperty Name="Destination" ColumnName="Destination" />
-                <ScalarProperty Name="Origin" ColumnName="Origin" />
-                <ScalarProperty Name="SegmentID" ColumnName="SegmentID" />
+          <ScalarProperty Name="SegmentID" ColumnName="SegmentID" />
           <ScalarProperty Name="SegmentType" ColumnName="SegmentType" />
           <ScalarProperty Name="Topic" ColumnName="Topic" />
           <ScalarProperty Name="StartTime" ColumnName="StartTime" />
@@ -109,6 +106,9 @@
           <ScalarProperty Name="Posi" ColumnName="Posi" />
           <ScalarProperty Name="Index" ColumnName="Index" />
           <ScalarProperty Name="TripID" ColumnName="TripID" />
+          <ScalarProperty Name="Origin" ColumnName="Origin" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
