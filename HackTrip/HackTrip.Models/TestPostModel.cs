@@ -7,7 +7,7 @@ namespace HackTrip.Models
 {
     public class TestPostModel
     {
-        public string StartSite { get; set; }
+        public Point StartSite { get; set; }
         public string CityId { get; set; }
         public List<Point> SelectStateArray { get; set; }
     }
