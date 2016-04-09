@@ -27,7 +27,7 @@ namespace HackTrip.Controllers.Models.WebBo
         //添加
         public bool AddTripData(List<MapDistance> model)
         {
-            var List = new TripDataModel() { Origin = model.FirstOrDefault().startItem.Lon + model.FirstOrDefault().startItem.Lat };
+            var List = new TripDataModel() { Origin = model.FirstOrDefault().EndItem.Lon + model.FirstOrDefault().EndItem.Lat };
             model.AsParallel().ForAll(x =>
                 {
                     var item = new List<SegmentDataModel>();

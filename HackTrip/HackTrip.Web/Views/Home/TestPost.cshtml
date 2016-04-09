@@ -1,5 +1,26 @@
-﻿@{
+﻿@model HackTrip.Adapter.Data.TripDataModel
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
+<div class="view">
+    <div>@Model.Topic</div>
+    <table class="table" contenteditable="true">
+        <thead>
+            <tr>
+                <th>主题</th>
+                <th>目的地</th>
+                <th>距离上一行程</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.List.Oderby(x => x.Index))
+            {
+            <tr>
+                <td>@item.Topic</td>
+                <td>@item.Destination</td>
+                <td>@item.Distance</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
