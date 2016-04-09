@@ -1,5 +1,6 @@
 ﻿using HackTrip.Adapter.AMapAPI;
 using HackTrip.Adapter.AMapAPI.Response;
+using HackTrip.Adapter.Data;
 using HackTrip.Controllers.Models;
 using HackTrip.Controllers.Models.WebBo;
 using HackTrip.Models;
@@ -53,11 +54,22 @@ namespace HackTrip.Controllers
 
         }
         /// <summary>
+        /// huo
+        /// </summary>
+        /// <param name="_resquest"></param>
+        /// <returns></returns>
+        public TripDataModel GetLastTrip()
+        {
+            return new TripDataBo().GetLastTrip();
+
+
+        }
+        /// <summary>
         /// 排序
         /// </summary>
         /// <param name="_resquest"></param>
         /// <returns></returns>
-        public List<MapDistance> GetSort(TestPostModel model)
+        public bool GetSort(TestPostModel model)
         {
             //var dic = new Dictionary<double, MapBase>();
             var list = new List<MapDistance>();
@@ -100,8 +112,8 @@ namespace HackTrip.Controllers
             /*
             排序
              */
-           // new TripDataBo().AddTripData(list);
-            return list;
+
+            return new TripDataBo().AddTripData(list);
 
 
         }

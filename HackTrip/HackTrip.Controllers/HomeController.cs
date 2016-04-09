@@ -16,9 +16,9 @@ namespace HackTrip.Controllers
         }
         public ActionResult TestPost(TestPostModel model)
         {
-            var list = new ScheduleBo().GetSort(model);
-            //ResultModel r = new ResultModel() {  List = list};
-            return View(list);
+            var result = new ScheduleBo().GetSort(model);
+              //ResultModel r = new ResultModel() {  List = list};
+            return View(new ScheduleBo().GetLastTrip());
         }    
     }
 }
