@@ -1,8 +1,0 @@
-D:\hackathon\trip\HackTrip\HackTrip.DAL\obj\Debug\HackTrip.DAL.csprojResolveAssemblyReference.cache
-D:\hackathon\trip\HackTrip\HackTrip.DAL\bin\Debug\HackTrip.DAL.dll.config
-D:\hackathon\trip\HackTrip\HackTrip.DAL\bin\Debug\HackTrip.DAL.dll
-D:\hackathon\trip\HackTrip\HackTrip.DAL\bin\Debug\HackTrip.DAL.pdb
-D:\hackathon\trip\HackTrip\HackTrip.DAL\bin\Debug\EntityFramework.dll
-D:\hackathon\trip\HackTrip\HackTrip.DAL\bin\Debug\EntityFramework.xml
-D:\hackathon\trip\HackTrip\HackTrip.DAL\obj\Debug\HackTrip.DAL.dll
-D:\hackathon\trip\HackTrip\HackTrip.DAL\obj\Debug\HackTrip.DAL.pdb

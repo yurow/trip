@@ -18,6 +18,7 @@ namespace HackTrip.Controllers
         {
             var list = new ScheduleBo().GetSort(model);
             //ResultModel r = new ResultModel() {  List = list};
+
             return View(list);
         }    
     }
