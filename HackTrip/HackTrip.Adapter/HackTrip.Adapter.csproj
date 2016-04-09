@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -55,10 +56,19 @@
     <Compile Include="AMapAPI\Response\StepEntity.cs" />
     <Compile Include="AMapAPI\SearchDetails.cs" />
     <Compile Include="AMapAPI\SimpleSearcher.cs" />
+    <Compile Include="Data\SegmentDataModel.cs" />
+    <Compile Include="Data\TripDataModel.cs" />
+    <Compile Include="Data\TripScope.cs" />
     <Compile Include="ITripDesigner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\JsonTool.cs" />
     <Compile Include="TripDesigner.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HackTrip.DAL\HackTrip.DAL.csproj">
+      <Project>{d6bac131-22a2-4a60-bdd6-fa8573c7975c}</Project>
+      <Name>HackTrip.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

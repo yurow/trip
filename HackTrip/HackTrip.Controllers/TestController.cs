@@ -1,4 +1,5 @@
 ﻿using HackTrip.Adapter.AMapAPI;
+using HackTrip.Adapter.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,13 @@ namespace HackTrip.Controllers
             DrivingPath ss = new DrivingPath("116.459287,39.895433", "116.350459,39.846094", "B000A84420", "BX10015497", "5");
             var res = ss.Query();
             return Json(res, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult TestDB()
+        {
+            TripScope ts = new TripScope();
+            ts.NewTrip(new TripDataModel() { Origin = "cde" },null);
+            return Json(new { }, JsonRequestBehavior.AllowGet);
         }
     }
 }
