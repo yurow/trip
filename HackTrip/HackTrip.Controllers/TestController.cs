@@ -48,8 +48,22 @@ namespace HackTrip.Controllers
         public ActionResult TestDB()
         {
             TripScope ts = new TripScope();
-            ts.NewTrip(new TripDataModel() { Origin = "cde" });
-            return Json(new { }, JsonRequestBehavior.AllowGet);
+            TripDataModel td = new TripDataModel();
+            td.Origin = "ttt";
+            td.Segments = new List<SegmentDataModel>();
+            for (int i = 0; i < 10; i++)
+            {
+                td.Segments.Add(new SegmentDataModel() { Topic = "AAA", Index = i, SegmentType = (byte)i, StartTime = DateTime.Now });
+            }
+            var s = ts.NewTrip(td);
+            return Json(new { success = s }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GetTrip(long tripid)
+        {
+            TripScope ts = new TripScope();
+            var s = ts.GetTrip(tripid);
+            return Json(s, JsonRequestBehavior.AllowGet);
         }
     }
 }
