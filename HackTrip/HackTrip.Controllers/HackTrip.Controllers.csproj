@@ -30,9 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CSharp" /><Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />    <Reference Include="System" />
+    <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,14 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\SelectStateArray.cs" /><Compile Include="HomeController.cs" />
+    <Compile Include="HomeController.cs" />
     <Compile Include="Models\MapBo.cs" />
     <Compile Include="Models\MapEntity.cs" />
     <Compile Include="Models\ResquestMap.cs" />
-    <Compile Include="Models\SelectStateArray.cs" />    <Compile Include="Models\WebBo\ScheduleBo.cs" />
+    <Compile Include="Models\WebBo\ScheduleBo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<Compile Include="TestController.cs" />
-    <Compile Include="TripScheduleController.cs" />  </ItemGroup>
+    <Compile Include="TestController.cs" />
+    <Compile Include="TripScheduleController.cs" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HackTrip.Adapter\HackTrip.Adapter.csproj">
       <Project>{1863fe66-72e8-4ac1-9345-b9b5007e32c9}</Project>
