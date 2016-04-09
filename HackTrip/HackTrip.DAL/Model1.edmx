@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="TripCollections">
+          <Key>
+            <PropertyRef Name="TripId" />
+          </Key>
+          <Property Name="TripId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Origin" Type="nvarchar" MaxLength="50" />
+          <Property Name="Destination" Type="nvarchar" MaxLength="50" />
+          <Property Name="OriginPosi" Type="nvarchar" MaxLength="100" />
+          <Property Name="DestinationPosi" Type="nvarchar" MaxLength="100" />
+          <Property Name="OriginTime" Type="datetime" />
+          <Property Name="DestinationTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TripSegments">
+          <Key>
+            <PropertyRef Name="SegmentID" />
+          </Key>
+          <Property Name="SegmentID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SegmentType" Type="tinyint" />
+          <Property Name="Topic" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="CostSeconds" Type="bigint" />
+          <Property Name="Posi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Index" Type="int" />
+          <Property Name="TripID" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Database1ModelStoreContainer">
+          <EntitySet Name="TripCollections" EntityType="Self.TripCollections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TripSegments" EntityType="Self.TripSegments" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database1Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="TripCollections" EntityType="Database1Model.TripCollection" />
+          <EntitySet Name="TripSegments" EntityType="Database1Model.TripSegment" />
+        </EntityContainer>
+        <EntityType Name="TripCollection">
+          <Key>
+            <PropertyRef Name="TripId" />
+          </Key>
+          <Property Name="TripId" Type="Int64" Nullable="false" />
+          <Property Name="Origin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Destination" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OriginPosi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DestinationPosi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OriginTime" Type="DateTime" Precision="3" />
+          <Property Name="DestinationTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TripSegment">
+          <Key>
+            <PropertyRef Name="SegmentID" />
+          </Key>
+          <Property Name="SegmentID" Type="Int64" Nullable="false" />
+          <Property Name="SegmentType" Type="Byte" />
+          <Property Name="Topic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="CostSeconds" Type="Int64" />
+          <Property Name="Posi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Index" Type="Int32" />
+          <Property Name="TripID" Type="Int64" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
+    <EntitySetMapping Name="TripCollections">
+      <EntityTypeMapping TypeName="IsTypeOf(Database1Model.TripCollection)">
+        <MappingFragment StoreEntitySet="TripCollections">
+          <ScalarProperty Name="TripId" ColumnName="TripId" />
+          <ScalarProperty Name="Origin" ColumnName="Origin" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+          <ScalarProperty Name="OriginPosi" ColumnName="OriginPosi" />
+          <ScalarProperty Name="DestinationPosi" ColumnName="DestinationPosi" />
+          <ScalarProperty Name="OriginTime" ColumnName="OriginTime" />
+          <ScalarProperty Name="DestinationTime" ColumnName="DestinationTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TripSegments">
+      <EntityTypeMapping TypeName="IsTypeOf(Database1Model.TripSegment)">
+        <MappingFragment StoreEntitySet="TripSegments">
+          <ScalarProperty Name="SegmentID" ColumnName="SegmentID" />
+          <ScalarProperty Name="SegmentType" ColumnName="SegmentType" />
+          <ScalarProperty Name="Topic" ColumnName="Topic" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="CostSeconds" ColumnName="CostSeconds" />
+          <ScalarProperty Name="Posi" ColumnName="Posi" />
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="TripID" ColumnName="TripID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

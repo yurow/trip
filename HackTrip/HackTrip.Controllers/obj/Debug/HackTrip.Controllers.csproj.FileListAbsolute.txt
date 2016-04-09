@@ -1,0 +1,2 @@
+E:\Vs\DEVStart\trip\HackTrip\HackTrip.Controllers\obj\Debug\HackTrip.Controllers.csprojResolveAssemblyReference.cache
+E:\Vs\DEVStart\trip\HackTrip\HackTrip.Controllers\obj\Debug\HackTrip.Controllers.csprojFakesResolveAssemblyReference.cache
