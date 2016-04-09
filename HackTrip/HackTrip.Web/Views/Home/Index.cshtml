@@ -121,10 +121,16 @@
                                     $("ul .poibox").on("click", function () {
                                         if ($(this).css("background-Color") == "rgb(246, 246, 246)") {
                                             $(this).css("background-Color", "green");
-                                            model.SelectStateArray.push(result.poiList.pois[$(this).index()].id);
+                                            model.SelectStateArray.push(result.poiList.pois[$(this).index()].id + ',' + result.poiList.pois[$(this).index()].location.lng + ',' + result.poiList.pois[$(this).index()].location.lat);
                                         }
                                         else {
                                             $(this).css("background-Color", "");
+                                            for (var i = 0; i < model.SelectStateArray.length; i++){
+                                                if (model.SelectStateArray[i].split(',')[0] == result.poiList.pois[$(this).index()].id) {
+                                                    model.SelectStateArray.remove(i);
+                                                    return;
+                                                }
+                                            }
                                         }
                                     });
                                 });
