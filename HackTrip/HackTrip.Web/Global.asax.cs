@@ -60,7 +60,11 @@ namespace HackTrip.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.IgnoreRoute("*.aspx");
             routes.IgnoreRoute("*.asmx");
-
+            routes.MapRoute(
+                "Home", // 路由名称
+                "{controller}/{action}", // 带有参数的 URL
+                new { controller = "Home", action = "Index" } // 参数默认值
+            );
             routes.MapRoute(
                 "Simple", // 路由名称
                 "{controller}/{action}/{id}", // 带有参数的 URL

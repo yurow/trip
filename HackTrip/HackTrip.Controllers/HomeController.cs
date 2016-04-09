@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace HackTrip.Controllers
 {
-    public class HomeContoller : Controller
+    public class HomeController : Controller
     {
         public ActionResult Index()
         {
