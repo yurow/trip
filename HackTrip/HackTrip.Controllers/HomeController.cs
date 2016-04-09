@@ -12,8 +12,9 @@ namespace HackTrip.Controllers
         {
             return View();
         }
-  public ActionResult TestPost(TestPostModel model)
+        public ActionResult TestPost(TestPostModel model)
         {
             return View();
-        }    }
+        }    
+    }
 }

@@ -5,9 +5,9 @@
 <div id="container">
     <div class="col-lg-6">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="目的城市" style="height:100%">
+            <input id="cityName" type="text" class="form-control" placeholder="目的城市" style="height:100%">
             <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Go!</button>
+                <button id="setCity" class="btn btn-default" type="button">Go!</button>
             </span>
         </div>
     </div>
@@ -17,22 +17,6 @@
 </div>
 <div id="panel"></div>
 <script>
-    $.fn.serializeObject = function () {
-        var o = {};
-        var a = this.serializeArray();
-        $.each(a, function () {
-            if (o[this.name] !== undefined) {
-                if (!o[this.name].push) {
-                    o[this.name] = [o[this.name]];
-                }
-                o[this.name].push(this.value || '');
-            } else {
-                o[this.name] = this.value || '';
-            }
-        });
-        return o;
-    };
-
     var model = {};
     model.SelectStateArray = [];
     var lnglatXY=[121.498586, 31.239637]	//默认地址：上海市
@@ -42,9 +26,7 @@
     });
     AMap.service('AMap.Geocoder', function () {//回调函数
         //实例化Geocoder
-        geocoder = new AMap.Geocoder({
-            city: "010"//城市，默认：“全国”
-        });
+        geocoder = new AMap.Geocoder();
         //TODO: 使用geocoder 对象完成相关功能
         geocoder.getAddress(lnglatXY, function (status, result) {
             if (status === 'complete' && result.info === 'OK') {
@@ -93,12 +75,57 @@
         tempForm.submit();
     });
 
-    function createInput(name,value,root) {
+    function createInput(name, value, root) {
         var hidePrintNum = document.createElement("input");
         hidePrintNum.type = "hidden";
         hidePrintNum.name = name;
         hidePrintNum.value = value;
         root.appendChild(hidePrintNum);
     }
+
+    $("#setCity").on("click", function () {
+        var cityName = $("#cityName").val().trim();
+        AMap.service('AMap.Geocoder', function () {//回调函数
+            //实例化Geocoder
+            geocoder = new AMap.Geocoder();
+            //TODO: 使用geocoder 对象完成相关功能
+            //地理编码
+            geocoder.getLocation(cityName, function (status, result) {
+                console.log(result);
+                if (status === 'complete' && result.info === 'OK') {
+                    map.setZoom(10);
+                    map.setCenter(result.geocodes[0].location);
+                    
+                    model.CityId = result.geocodes[0].addressComponent.citycode;
+                    AMap.service('AMap.PlaceSearch', function () {//回调函数
+                                var placeSearch = new AMap.PlaceSearch({ //构造地点查询类
+                                    pageSize: 50,
+                                    pageIndex: 1,
+                                    type: '风景名胜',
+                                    city: result.geocodes[0].addressComponent.citycode, //城市
+                                    map: map,
+                                    panel: "panel"
+                                });
+                                //关键字查询
+                                placeSearch.search('', function (status, result) {
+                                    //给panel每条右边加选择框
+                                    $("ul .poibox").on("click", function () {
+                                        if ($(this).css("background-Color") == "rgb(246, 246, 246)") {
+                                            $(this).css("background-Color", "green");
+                                            model.SelectStateArray.push(result.poiList.pois[$(this).index()].id);
+                                        }
+                                        else {
+                                            $(this).css("background-Color", "");
+                                        }
+                                    });
+                                });
+                            });
+                        
+                } else {
+                    //获取经纬度失败
+                }
+            });
+        })
+    });
 
 </script>
