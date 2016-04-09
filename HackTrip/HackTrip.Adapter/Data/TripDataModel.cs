@@ -14,5 +14,7 @@ namespace HackTrip.Adapter.Data
         public string DestinationPosi { get; set; }
         public Nullable<System.DateTime> OriginTime { get; set; }
         public Nullable<System.DateTime> DestinationTime { get; set; }
+
+        public List<SegmentDataModel> Segments { get; set; }
     }
 }

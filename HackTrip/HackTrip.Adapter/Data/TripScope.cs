@@ -8,7 +8,7 @@ namespace HackTrip.Adapter.Data
 {
     public class TripScope
     {
-        public bool NewTrip(TripDataModel model,List<SegmentDataModel> list)
+        public bool NewTrip(TripDataModel model)
         {
             using (Database1Entities de = new Database1Entities())
             {
@@ -17,9 +17,9 @@ namespace HackTrip.Adapter.Data
                 de.TripCollections.Add(tc);
                 var i = de.SaveChanges();
 
-                if (list != null)
+                if (model.Segments != null)
                 {
-                    foreach (var item in list)
+                    foreach (var item in model.Segments)
                     {
                         TripSegment segment = new TripSegment()
                         {

@@ -48,7 +48,7 @@ namespace HackTrip.Controllers
         public ActionResult TestDB()
         {
             TripScope ts = new TripScope();
-            ts.NewTrip(new TripDataModel() { Origin = "cde" },null);
+            ts.NewTrip(new TripDataModel() { Origin = "cde" });
             return Json(new { }, JsonRequestBehavior.AllowGet);
         }
     }
