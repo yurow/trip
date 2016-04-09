@@ -9,6 +9,13 @@ namespace HackTrip.Models
     {
         public string StartSite { get; set; }
         public string CityId { get; set; }
-        public List<string> SelectStateArray { get; set; }
+        public List<Point> SelectStateArray { get; set; }
+    }
+
+    public class Point
+    {
+        public string id { get; set; }
+        public string lng { get; set; }
+        public string lat { get; set; }
     }
 }

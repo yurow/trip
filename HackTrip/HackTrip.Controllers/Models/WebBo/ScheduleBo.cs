@@ -42,11 +42,10 @@ namespace HackTrip.Controllers
         public ResquestMap ExChangeEntity(TestPostModel model)
         {
             ResquestMap _resquest = new ResquestMap() { CityId= model.CityId};
-            List<string> oldList;
+            _resquest.List = new List<MapBase>();
             model.SelectStateArray.ForEach(x =>
             {
-                oldList = x.Split(',').ToList();
-                _resquest.List.Add(new MapBase() { Lat = oldList[0], Lon = oldList[1] });
+                _resquest.List.Add(new MapBase() { Lat = x.lat, Lon = x.lng });
             });
             return _resquest;
 
@@ -63,22 +62,19 @@ namespace HackTrip.Controllers
             double distance = 0;
 
             var _resquest = ExChangeEntity(model);
-            for (int i = 1; i < _resquest.List.Count; i++)
+            for (int i = 0; i < _resquest.List.Count; i++)
             {
                 //minDistance = GetDistanceUtil(Convert.ToDouble(_resquest.List[i].Lat), Convert.ToDouble(_resquest.List[i].Lon), Convert.ToDouble(_resquest.List[i].Lat), Convert.ToDouble(_resquest.List[i].Lon));
-               if(i>0)
-               {
-                   for (int j = i + 1; j < _resquest.List.Count; j++)
-                   {
-                       distance = GetDistanceUtil(Convert.ToDouble(_resquest.List[i].Lat), Convert.ToDouble(_resquest.List[i].Lon), Convert.ToDouble(_resquest.List[i].Lat), Convert.ToDouble(_resquest.List[i].Lon));
-                       list.Add(new MapDistance()
-                      {
-                          DistanceId = distance,
-                          startItem = new MapBase() { Lat = _resquest.List[i].Lat, Lon = _resquest.List[i].Lon },
-                          EndItem = new MapBase { Lat = _resquest.List[j].Lat, Lon = _resquest.List[j].Lon }
-                      });
+                for (int j = i + 1; j < _resquest.List.Count; j++)
+                {
+                    distance = GetDistanceUtil(Convert.ToDouble(_resquest.List[i].Lat), Convert.ToDouble(_resquest.List[i].Lon), Convert.ToDouble(_resquest.List[j].Lat), Convert.ToDouble(_resquest.List[j].Lon));
+                    list.Add(new MapDistance()
+                    {
+                        DistanceId = distance,
+                        startItem = new MapBase() { Lat = _resquest.List[i].Lat, Lon = _resquest.List[i].Lon },
+                        EndItem = new MapBase { Lat = _resquest.List[j].Lat, Lon = _resquest.List[j].Lon }
+                    });
                 }
-               }
             }
             /*
             排序
