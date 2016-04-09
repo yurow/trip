@@ -64,7 +64,7 @@
         var tempForm = document.createElement("form");
         tempForm.id = "tempForm1";
         tempForm.method = "post";
-        tempForm.action = "/home/TestPost";
+        tempForm.action = "@Url.Content("~/home/TestPost")";
         tempForm.target = "_blank";
         
         createInput("cityid", model.CityId, tempForm);

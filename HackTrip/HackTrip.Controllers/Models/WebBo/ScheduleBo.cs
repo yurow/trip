@@ -1,5 +1,6 @@
 ﻿using HackTrip.Adapter.AMapAPI.Response;
 using HackTrip.Controllers.Models;
+using HackTrip.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,13 +39,13 @@ namespace HackTrip.Controllers
         {
             return MapBo.Instance.GetDistanceUtil(lat1, lng1, lat2, lng2);
         }
-        public ResquestMap ExChangeEntity(MapPostModel model)
+        public ResquestMap ExChangeEntity(TestPostModel model)
         {
             ResquestMap _resquest = new ResquestMap() { CityId= model.CityId};
-            List<int> oldList;
+            List<string> oldList;
             model.SelectStateArray.ForEach(x =>
             {
-                oldList = x.split(",");
+                oldList = x.Split(',').ToList();
                 _resquest.List.Add(new MapBase() { Lat = oldList[0], Lon = oldList[1] });
             });
             return _resquest;
@@ -55,7 +56,7 @@ namespace HackTrip.Controllers
         /// </summary>
         /// <param name="_resquest"></param>
         /// <returns></returns>
-        public Dictionary<double, MapBase> GetSort(MapPostModel model)
+        public Dictionary<double, MapBase> GetSort(TestPostModel model)
         {
             var dic = new Dictionary<double, MapBase>();
             var list = new List<MapDistance>();

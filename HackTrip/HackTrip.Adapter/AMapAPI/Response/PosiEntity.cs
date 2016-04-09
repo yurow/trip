@@ -12,6 +12,7 @@ namespace HackTrip.Adapter.AMapAPI.Response
         public string type { get; set; }
         public string location { get; set; }
         public string address { get; set; }
+        public string biz_type { get; set; }
 
     }
 }

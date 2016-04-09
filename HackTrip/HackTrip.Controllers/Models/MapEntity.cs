@@ -31,7 +31,6 @@ namespace HackTrip.Controllers.Models
         public long adname { get; set; }
         public long gridcode { get; set; }
         public long distance { get; set; }
-        public long website { get; set; }
         
             
     }
