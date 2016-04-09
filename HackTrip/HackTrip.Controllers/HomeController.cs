@@ -1,5 +1,4 @@
-﻿using HackTrip.Models;
-using System;
+﻿using HackTrip.Adapter.AMapAPI;using HackTrip.Models;using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +12,8 @@ namespace HackTrip.Controllers
         {
             return View();
         }
-
-        public ActionResult TestPost(TestPostModel model)
+  public ActionResult TestPost(TestPostModel model)
         {
             return View();
-        }
-    }
+        }    }
 }
