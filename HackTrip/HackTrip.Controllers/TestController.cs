@@ -22,5 +22,26 @@ namespace HackTrip.Controllers
             var res = ss.Query();
             return Json(res, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult SearchDetails()
+        {
+            SearchDetails ss = new SearchDetails("B000A84420");
+            var res = ss.Query();
+            return Json(res, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult DrivingPath()
+        {
+            DrivingPath ss = new DrivingPath("116.459287,39.895433", "116.350459,39.846094", "5");
+            var res = ss.Query();
+            return Json(res, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult DrivingPath2()
+        {
+            DrivingPath ss = new DrivingPath("116.459287,39.895433", "116.350459,39.846094", "B000A84420", "BX10015497", "5");
+            var res = ss.Query();
+            return Json(res, JsonRequestBehavior.AllowGet);
+        }
     }
 }

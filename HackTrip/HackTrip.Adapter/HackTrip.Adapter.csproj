@@ -42,10 +42,18 @@
   <ItemGroup>
     <Compile Include="AMapAPI\APISetting.cs" />
     <Compile Include="AMapAPI\AroundSearcher.cs" />
+    <Compile Include="AMapAPI\DrivingPath.cs" />
+    <Compile Include="AMapAPI\GeoMap.cs" />
     <Compile Include="AMapAPI\QueryBase.cs" />
+    <Compile Include="AMapAPI\Response\GeoMapResponse.cs" />
+    <Compile Include="AMapAPI\Response\PathEntity.cs" />
+    <Compile Include="AMapAPI\Response\PathResponse.cs" />
     <Compile Include="AMapAPI\Response\PosiEntity.cs" />
     <Compile Include="AMapAPI\Response\ResponseBase.cs" />
+    <Compile Include="AMapAPI\Response\RouteEntity.cs" />
     <Compile Include="AMapAPI\Response\SimpleSearcherResponse.cs" />
+    <Compile Include="AMapAPI\Response\StepEntity.cs" />
+    <Compile Include="AMapAPI\SearchDetails.cs" />
     <Compile Include="AMapAPI\SimpleSearcher.cs" />
     <Compile Include="ITripDesigner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
