@@ -46,14 +46,25 @@
                     });
                     //关键字查询
                     placeSearch.search('', function (status, result) {
-                        
+                        //给panel每条右边加选择框
                         $("ul .poibox").on("click", function () {
                             if ($(this).css("background-Color") == "rgb(246, 246, 246)") {
                                 $(this).css("background-Color", "green");
-                                model.SelectStateArray.push(result.poiList.pois[$(this).index()].id);
+                                model.SelectStateArray.push(
+                                    {
+                                        id: result.poiList.pois[$(this).index()].id,
+                                        lng: result.poiList.pois[$(this).index()].location.lng,
+                                        lat: result.poiList.pois[$(this).index()].location.lat
+                                    });
                             }
                             else {
                                 $(this).css("background-Color", "");
+                                for (var i = 0; i < model.SelectStateArray.length; i++) {
+                                    if (model.SelectStateArray[i].id == result.poiList.pois[$(this).index()].id) {
+                                        model.SelectStateArray.remove(i);
+                                        return;
+                                    }
+                                }
                             }
                         });
                     });
@@ -78,7 +89,9 @@
         
         createInput("cityid", model.CityId, tempForm);
         for (var i = 0; i < model.SelectStateArray.length; i++) {
-            createInput("SelectStateArray["+i+"]", model.SelectStateArray[i], tempForm);
+            createInput("SelectStateArray[" + i + "].id", model.SelectStateArray[i].id, tempForm);
+            createInput("SelectStateArray[" + i + "].lng", model.SelectStateArray[i].lng, tempForm);
+            createInput("SelectStateArray[" + i + "].lat", model.SelectStateArray[i].lat, tempForm);
         }
         createInput("startSite", model.startSite, tempForm);
         document.body.appendChild(tempForm);
@@ -121,10 +134,20 @@
                                     $("ul .poibox").on("click", function () {
                                         if ($(this).css("background-Color") == "rgb(246, 246, 246)") {
                                             $(this).css("background-Color", "green");
-                                            model.SelectStateArray.push(result.poiList.pois[$(this).index()].id);
+                                            model.SelectStateArray.push(
+                                                {   id:result.poiList.pois[$(this).index()].id,
+                                                    lng:result.poiList.pois[$(this).index()].location.lng ,
+                                                    lat:result.poiList.pois[$(this).index()].location.lat
+                                                });
                                         }
                                         else {
                                             $(this).css("background-Color", "");
+                                            for (var i = 0; i < model.SelectStateArray.length; i++){
+                                                if (model.SelectStateArray[i].id == result.poiList.pois[$(this).index()].id) {
+                                                    model.SelectStateArray.remove(i);
+                                                    return;
+                                                }
+                                            }
                                         }
                                     });
                                 });
