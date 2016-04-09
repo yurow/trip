@@ -3,3 +3,8 @@ D:\hackathon\trip\HackTrip\HackTrip.Models\bin\Debug\HackTrip.Models.pdb
 D:\hackathon\trip\HackTrip\HackTrip.Models\obj\Debug\HackTrip.Models.csprojResolveAssemblyReference.cache
 D:\hackathon\trip\HackTrip\HackTrip.Models\obj\Debug\HackTrip.Models.dll
 D:\hackathon\trip\HackTrip\HackTrip.Models\obj\Debug\HackTrip.Models.pdb
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Models\bin\Debug\HackTrip.Models.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Models\bin\Debug\HackTrip.Models.pdb
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Models\obj\Debug\HackTrip.Models.csprojResolveAssemblyReference.cache
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Models\obj\Debug\HackTrip.Models.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Models\obj\Debug\HackTrip.Models.pdb

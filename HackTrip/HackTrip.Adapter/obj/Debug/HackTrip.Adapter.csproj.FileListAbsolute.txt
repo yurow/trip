@@ -10,3 +10,15 @@ D:\hackathon\trip\HackTrip\HackTrip.Adapter\bin\Debug\EntityFramework.SqlServer.
 D:\hackathon\trip\HackTrip\HackTrip.Adapter\obj\Debug\HackTrip.Adapter.csprojResolveAssemblyReference.cache
 D:\hackathon\trip\HackTrip\HackTrip.Adapter\obj\Debug\HackTrip.Adapter.dll
 D:\hackathon\trip\HackTrip\HackTrip.Adapter\obj\Debug\HackTrip.Adapter.pdb
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Adapter\bin\Debug\HackTrip.Adapter.dll.config
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Adapter\bin\Debug\HackTrip.Adapter.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Adapter\bin\Debug\HackTrip.Adapter.pdb
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Adapter\bin\Debug\EntityFramework.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Adapter\bin\Debug\EntityFramework.SqlServer.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Adapter\bin\Debug\HackTrip.DAL.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Adapter\bin\Debug\HackTrip.DAL.pdb
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Adapter\bin\Debug\EntityFramework.xml
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Adapter\bin\Debug\EntityFramework.SqlServer.xml
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Adapter\obj\Debug\HackTrip.Adapter.csprojResolveAssemblyReference.cache
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Adapter\obj\Debug\HackTrip.Adapter.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Adapter\obj\Debug\HackTrip.Adapter.pdb

@@ -11,3 +11,16 @@ D:\hackathon\trip\HackTrip\HackTrip.Controllers\bin\Debug\HackTrip.DAL.pdb
 D:\hackathon\trip\HackTrip\HackTrip.Controllers\bin\Debug\EntityFramework.xml
 D:\hackathon\trip\HackTrip\HackTrip.Controllers\obj\Debug\HackTrip.Controllers.dll
 D:\hackathon\trip\HackTrip\HackTrip.Controllers\obj\Debug\HackTrip.Controllers.pdb
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Controllers\obj\Debug\HackTrip.Controllers.csprojResolveAssemblyReference.cache
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Controllers\obj\Debug\HackTrip.Controllers.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Controllers\obj\Debug\HackTrip.Controllers.pdb
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Controllers\bin\Debug\HackTrip.Controllers.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Controllers\bin\Debug\HackTrip.Controllers.pdb
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Controllers\bin\Debug\HackTrip.Adapter.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Controllers\bin\Debug\HackTrip.Models.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Controllers\bin\Debug\HackTrip.DAL.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Controllers\bin\Debug\EntityFramework.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Controllers\bin\Debug\HackTrip.Adapter.pdb
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Controllers\bin\Debug\HackTrip.Models.pdb
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Controllers\bin\Debug\HackTrip.DAL.pdb
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Controllers\bin\Debug\EntityFramework.xml

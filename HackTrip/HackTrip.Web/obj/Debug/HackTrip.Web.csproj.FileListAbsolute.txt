@@ -16,3 +16,21 @@ D:\hackathon\trip\HackTrip\HackTrip.Web\bin\HackTrip.DAL.pdb
 D:\hackathon\trip\HackTrip\HackTrip.Web\bin\EntityFramework.xml
 D:\hackathon\trip\HackTrip\HackTrip.Web\obj\Debug\HackTrip.Web.dll
 D:\hackathon\trip\HackTrip\HackTrip.Web\obj\Debug\HackTrip.Web.pdb
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Web\bin\HackTrip.Web.dll.config
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Web\bin\HackTrip.Web.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Web\bin\HackTrip.Web.pdb
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Web\bin\HackTrip.Controllers.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Web\bin\HackTrip.Models.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Web\bin\HackTrip.Adapter.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Web\bin\HackTrip.DAL.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Web\bin\EntityFramework.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Web\bin\HackTrip.Controllers.pdb
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Web\bin\HackTrip.Models.pdb
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Web\bin\Microsoft.Web.Infrastructure.xml
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Web\bin\HackTrip.Adapter.pdb
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Web\bin\HackTrip.DAL.pdb
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Web\bin\EntityFramework.xml
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Web\obj\Debug\HackTrip.Web.csprojResolveAssemblyReference.cache
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Web\obj\Debug\HackTrip.Web.dll
+D:\GIT DD\Project\trip\HackTrip\HackTrip.Web\obj\Debug\HackTrip.Web.pdb
