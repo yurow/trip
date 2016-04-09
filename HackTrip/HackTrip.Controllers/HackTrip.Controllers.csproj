@@ -42,6 +42,13 @@
   <ItemGroup>
     <Compile Include="HomeController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HackTrip.Adapter\HackTrip.Adapter.csproj">
+      <Project>{1863fe66-72e8-4ac1-9345-b9b5007e32c9}</Project>
+      <Name>HackTrip.Adapter</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
