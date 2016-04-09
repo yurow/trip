@@ -50,6 +50,12 @@
       <Name>HackTrip.Adapter</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HackTrip.Models\HackTrip.Models.csproj">
+      <Project>{b3711140-cb5a-4916-999e-c71d323ab35b}</Project>
+      <Name>HackTrip.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
