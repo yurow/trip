@@ -1,4 +1,5 @@
-﻿using HackTrip.Adapter.AMapAPI.Response;
+﻿using HackTrip.Adapter.AMapAPI;
+using HackTrip.Adapter.AMapAPI.Response;
 using HackTrip.Controllers.Models;
 using HackTrip.Models;
 using System;
@@ -41,7 +42,7 @@ namespace HackTrip.Controllers
         }
         public ResquestMap ExChangeEntity(TestPostModel model)
         {
-            ResquestMap _resquest = new ResquestMap() { CityId= model.CityId};
+            ResquestMap _resquest = new ResquestMap() { CityId = model.CityId };
             _resquest.List = new List<MapBase>();
             model.SelectStateArray.ForEach(x =>
             {
@@ -55,33 +56,91 @@ namespace HackTrip.Controllers
         /// </summary>
         /// <param name="_resquest"></param>
         /// <returns></returns>
-        public Dictionary<double, MapBase> GetSort(TestPostModel model)
+        public List<MapDistance> GetSort(TestPostModel model)
         {
-            var dic = new Dictionary<double, MapBase>();
+            //var dic = new Dictionary<double, MapBase>();
             var list = new List<MapDistance>();
-            double distance = 0;
-
-            var _resquest = ExChangeEntity(model);
-            for (int i = 0; i < _resquest.List.Count; i++)
+            list.Add(new MapDistance() { Id = model.StartSite.id, EndItem = new MapBase() { Lat = model.StartSite.lat, Lon = model.StartSite.lng } });
+            var cache = new List<Point>();
+            foreach (var item in model.SelectStateArray)
             {
-                //minDistance = GetDistanceUtil(Convert.ToDouble(_resquest.List[i].Lat), Convert.ToDouble(_resquest.List[i].Lon), Convert.ToDouble(_resquest.List[i].Lat), Convert.ToDouble(_resquest.List[i].Lon));
-                for (int j = i + 1; j < _resquest.List.Count; j++)
+                cache.Add(item);
+            }
+            var current = list[0];
+            int count = cache.Count;
+            for (int i = 0; i < count; i++)
+            {
+                current = GetNext(current, cache);
+                list.Add(current);
+                if(cache.Count < 1)
                 {
-                    distance = GetDistanceUtil(Convert.ToDouble(_resquest.List[i].Lat), Convert.ToDouble(_resquest.List[i].Lon), Convert.ToDouble(_resquest.List[j].Lat), Convert.ToDouble(_resquest.List[j].Lon));
-                    list.Add(new MapDistance()
-                    {
-                        DistanceId = distance,
-                        startItem = new MapBase() { Lat = _resquest.List[i].Lat, Lon = _resquest.List[i].Lon },
-                        EndItem = new MapBase { Lat = _resquest.List[j].Lat, Lon = _resquest.List[j].Lon }
-                    });
+                    break;
                 }
             }
+
+
+            //double distance = 0;
+
+            //var _resquest = ExChangeEntity(model);
+            //for (int i = 0; i < _resquest.List.Count; i++)
+            //{
+            //    //minDistance = GetDistanceUtil(Convert.ToDouble(_resquest.List[i].Lat), Convert.ToDouble(_resquest.List[i].Lon), Convert.ToDouble(_resquest.List[i].Lat), Convert.ToDouble(_resquest.List[i].Lon));
+            //    for (int j = i + 1; j < _resquest.List.Count; j++)
+            //    {
+            //        distance = GetDistanceUtil(Convert.ToDouble(_resquest.List[i].Lat), Convert.ToDouble(_resquest.List[i].Lon), Convert.ToDouble(_resquest.List[j].Lat), Convert.ToDouble(_resquest.List[j].Lon));
+            //        list.Add(new MapDistance()
+            //        {
+            //            DistanceId = distance,
+            //            startItem = new MapBase() { Lat = _resquest.List[i].Lat, Lon = _resquest.List[i].Lon },
+            //            EndItem = new MapBase { Lat = _resquest.List[j].Lat, Lon = _resquest.List[j].Lon }
+            //        });
+            //    }
+            //}
             /*
             排序
              */
-            return dic;
-            
-             
+            return list;
+
+
+        }
+
+        private MapDistance GetNext(MapDistance current, List<Point> points)
+        {
+            List<MapDistance> list = new List<MapDistance>();
+            foreach (var item in points)
+            {
+                DrivingPath dp = new DrivingPath(current.EndItem.Lon + "," + current.EndItem.Lat, item.lng + "," + item.lat, "5");
+                var time = float.Parse(dp.Query().route.paths[0].duration);
+                var query = dp.Query();
+                var distance = double.Parse(query.route.paths[0].distance);
+                list.Add(new MapDistance()
+                {
+                    DistanceId = distance,
+                    startItem = new MapBase() { Lat = current.EndItem.Lat, Lon = current.EndItem.Lon },
+                    Duration = time,
+                    EndItem = new MapBase() { Lat = item.lat, Lon = item.lng },
+                    Id = item.id
+                });
+            }
+            list.Sort(new SortMapDistance());
+            var first = list[0];
+            for (int i = 0; i < points.Count; i++)
+            {
+                if (points[i].id == first.Id)
+                    points.RemoveAt(i);
+            }
+            return first;
+        }
+
+        private class SortMapDistance : IComparer<MapDistance>
+        {
+            public int Compare(MapDistance x, MapDistance y)
+            {
+                if (x.DistanceId > y.DistanceId) { return 1; }
+                else if (x.DistanceId == y.DistanceId) { return 0; }
+
+                else { return -1; }
+            }
         }
 
     }

@@ -23,9 +23,31 @@ namespace HackTrip.Controllers.Models
     }
     public class MapDistance 
     {
+        /// <summary>
+        /// 距离（米）
+        /// </summary>
         public double DistanceId { get; set; }
-
+        /// <summary>
+        /// POI ID
+        /// </summary>
+        public string Id { get; set; }
+        /// <summary>
+        /// 出发地
+        /// </summary>
         public MapBase startItem { get; set; }
+        /// <summary>
+        /// 到达地
+        /// </summary>
         public MapBase EndItem { get; set; }
+        /// <summary>
+        /// 时间（秒）
+        /// </summary>
+        public float Duration { get; set; }
+    }
+
+    public class Node
+    {
+        public string Id { get; set; }
+        public MapBase Posi { get; set; }
     }
 }
