@@ -1,0 +1,13 @@
+D:\hackathon\trip\HackTrip\HackTrip.Controllers\obj\Debug\HackTrip.Controllers.csprojResolveAssemblyReference.cache
+D:\hackathon\trip\HackTrip\HackTrip.Controllers\bin\Debug\HackTrip.Controllers.dll
+D:\hackathon\trip\HackTrip\HackTrip.Controllers\bin\Debug\HackTrip.Controllers.pdb
+D:\hackathon\trip\HackTrip\HackTrip.Controllers\bin\Debug\HackTrip.Adapter.dll
+D:\hackathon\trip\HackTrip\HackTrip.Controllers\bin\Debug\HackTrip.Models.dll
+D:\hackathon\trip\HackTrip\HackTrip.Controllers\bin\Debug\HackTrip.DAL.dll
+D:\hackathon\trip\HackTrip\HackTrip.Controllers\bin\Debug\EntityFramework.dll
+D:\hackathon\trip\HackTrip\HackTrip.Controllers\bin\Debug\HackTrip.Adapter.pdb
+D:\hackathon\trip\HackTrip\HackTrip.Controllers\bin\Debug\HackTrip.Models.pdb
+D:\hackathon\trip\HackTrip\HackTrip.Controllers\bin\Debug\HackTrip.DAL.pdb
+D:\hackathon\trip\HackTrip\HackTrip.Controllers\bin\Debug\EntityFramework.xml
+D:\hackathon\trip\HackTrip\HackTrip.Controllers\obj\Debug\HackTrip.Controllers.dll
+D:\hackathon\trip\HackTrip\HackTrip.Controllers\obj\Debug\HackTrip.Controllers.pdb

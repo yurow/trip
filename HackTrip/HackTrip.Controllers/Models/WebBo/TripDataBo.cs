@@ -25,30 +25,23 @@ namespace HackTrip.Controllers.Models.WebBo
             return result;
         }
         //添加
-        public bool AddTripData(MapPostModel model)
+        public bool AddTripData(List<MapDistance> model)
         {
-            var List = new TripDataModel(){Origin= model.CityId};
-            model.SelectStateArray.AsParallel().ForAll(x =>
+            var List = new TripDataModel() { Origin = model.FirstOrDefault().startItem.Lon + model.FirstOrDefault().startItem.Lat };
+            model.AsParallel().ForAll(x =>
                 {
                     var item = new List<SegmentDataModel>();
                     int index = 0;
-                    int preDistance = 0;
-                    int nexDistance = 0;
-                    
-                    MapBo.Instance.GetSenicSpotInfoById(x).Values.ToList().ForEach(m=>
+                    MapBo.Instance.GetSenicSpotInfoById(x.EndItem.Lon+x.EndItem.Lat).Values.ToList().ForEach(m =>
                         {
-                            new ScheduleBo().GetDistanceUtil(x);
-                            item.Add(new SegmentDataModel() { Posi = m.location, Topic = m.name, Index = index, SegmentType = 1, Origin = m.name, StartTime = Convert.ToDateTime(Convert.ToSingle(DateTime.Now.AddDays(6).Date) + " 08:10:00").AddHours(index + 2),Distance });
-                            //List.Add(new SegmentDataModel(){Destination =model.CityId,Origin = m.address
-                           // });
- 
+                            item.Add(new SegmentDataModel() { Posi = m.location, Topic = m.name, Index = index, SegmentType = 1, Origin = m.name, StartTime = Convert.ToDateTime(Convert.ToSingle(DateTime.Now.AddDays(6).Date) + " 08:10:00").AddHours(index + 2),Distance = Convert.ToDecimal(x.DistanceId) });
+                            index =+ 1;
                         });
                 });
-            var result = AddTripData(List);
-            return result;
+            return AddTripData(List);
         }
         //查询
-        public TripDataModel GetTripData(long? Id)
+        public TripDataModel GetTripData(long Id)
         {
             var List = new TripDataModel();
 
