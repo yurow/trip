@@ -52,10 +52,16 @@ namespace HackTrip.Controllers.Models.WebBo
                     List.Segments.AddRange(item);
                     continue;
                 }
+                var lastitem = List.Segments[List.Segments.Count - 1];
+                var currentTime = ((DateTime)lastitem.StartTime).AddSeconds((int)model[i].Duration);
+                if(i >= 2)
+                {
+                    currentTime = currentTime.AddHours(3);
+                }
                 MapBo.Instance.GetSenicSpotInfoById(model[i].Id).Values.ToList().ForEach(m =>
                     {
                         item.Add(new SegmentDataModel() { Posi = m.location, Topic = m.name, Index = i, SegmentType = 1,
-                            Origin = m.name,StepTime= (int)model[i].Duration, StartTime = Convert.ToDateTime(DateTime.Now.AddDays(6).ToShortDateString() + " 06:10:00").AddHours(2), Distance = Convert.ToDecimal(model[i].DistanceId) });
+                            Origin = m.name,StepTime= (int)model[i].Duration, StartTime = currentTime, Distance = Convert.ToDecimal(model[i].DistanceId) });
                         
                     });
                 List.Segments.AddRange(item);

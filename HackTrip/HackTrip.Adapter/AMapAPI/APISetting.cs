@@ -7,6 +7,6 @@ namespace HackTrip.Adapter.AMapAPI
 {
     public class APISetting
     {
-        public const string KEY = "4f72af1afc78c0846c3d86f4c3bdb26b";
+        public const string KEY = "8a7d18b22a4c2d0438e0dbf9daf9291b";
     }
 }
