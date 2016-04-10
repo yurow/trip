@@ -73,6 +73,32 @@ namespace HackTrip.Adapter.Data
                 return tm;
             }
         }
+
+        public TripDataModel GetLastTrip()
+        {
+            using (Database1Entities de = new Database1Entities())
+            {
+                TripCollection tc = de.TripCollections.OrderByDescending(x=>x.TripId).First();
+                IQueryable<TripSegment> segments = de.TripSegments.Where<TripSegment>(s => s.TripID == tc.TripId);
+                TripDataModel tm = new TripDataModel() { TripId = tc.TripId, Origin = tc.Origin,Topic = tc.Topic };
+                tm.Segments = new List<SegmentDataModel>();
+                foreach (var item in segments)
+                {
+                    tm.Segments.Add(new SegmentDataModel()
+                    {
+                        CostSeconds = item.CostSeconds,
+                        Index = item.Index,
+                        Posi = item.Posi,
+                        SegmentID = item.SegmentID,
+                        SegmentType = item.SegmentType,
+                        StartTime = item.StartTime,
+                        Topic = item.Topic,
+                        TripID = item.TripID
+                    });
+                }
+                return tm;
+            }
+        }
         //public TripDataModel GetLastTripData()
         //{
         //    using (Database1Entities de = new Database1Entities())

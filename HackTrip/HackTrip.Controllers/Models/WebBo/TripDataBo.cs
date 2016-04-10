@@ -25,22 +25,44 @@ namespace HackTrip.Controllers.Models.WebBo
             return result;
         }
         //添加
-        public bool AddTripData(List<MapDistance> model)
+        public TripDataModel AddTripData(List<MapDistance> model)
         {
             var List = new TripDataModel() { Origin = model.FirstOrDefault().EndItem.Lon + model.FirstOrDefault().EndItem.Lat };
-            for (int i = 1; i < model.Count; i++)
+            List.Segments = new List<SegmentDataModel>();
+            for (int i = 0; i < model.Count; i++)
             {
                 var item = new List<SegmentDataModel>();
-                int index = 0;
-                MapBo.Instance.GetSenicSpotInfoById(model[i].EndItem.Lon + model[i].EndItem.Lat).Values.ToList().ForEach(m =>
+                if (i == 0)
+                {
+                    MapBo.Instance.GetSenicSpotInfoById(model[i].Id).Values.ToList().ForEach(m =>
                     {
-                        item.Add(new SegmentDataModel() { Posi = m.location, Topic = m.name, Index = index, SegmentType = 1, Origin = m.name, StartTime = Convert.ToDateTime(Convert.ToSingle(DateTime.Now.AddDays(6).Date) + " 06:10:00").AddHours(i + 2), Distance = Convert.ToDecimal(model[i].DistanceId) });
+                        item.Add(new SegmentDataModel()
+                        {
+                            Posi = m.location,
+                            Topic = m.name + "(" + Convert.ToDateTime(DateTime.Now.AddDays(6).ToShortDateString() + " 07:00:00") + "出发)",
+                            Index = i,
+                            SegmentType = 1,
+                            Origin = m.name,
+                            StepTime = (int)model[i].Duration,
+                            StartTime = Convert.ToDateTime(DateTime.Now.AddDays(6).ToShortDateString() + " 07:00:00"),
+                            Distance = Convert.ToDecimal(model[i].DistanceId)
+                        });
+
+                    });
+                    List.Segments.AddRange(item);
+                    continue;
+                }
+                MapBo.Instance.GetSenicSpotInfoById(model[i].Id).Values.ToList().ForEach(m =>
+                    {
+                        item.Add(new SegmentDataModel() { Posi = m.location, Topic = m.name, Index = i, SegmentType = 1,
+                            Origin = m.name,StepTime= (int)model[i].Duration, StartTime = Convert.ToDateTime(DateTime.Now.AddDays(6).ToShortDateString() + " 06:10:00").AddHours(2), Distance = Convert.ToDecimal(model[i].DistanceId) });
                         
                     });
                 List.Segments.AddRange(item);
             }
         
-            return AddTripData(List);
+            //AddTripData(List);
+            return List;
         }
         //查询
         public TripDataModel GetTripData(long Id)

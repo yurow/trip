@@ -147,9 +147,9 @@ namespace HackTrip.Controllers.Models
         /// <summary>
         /// 
         /// </summary>
-        public Dictionary<long, PosiEntity> GetSenicSpotInfoById(string Id)
+        public Dictionary<string, PosiEntity> GetSenicSpotInfoById(string Id)
         {
-            var dic = new Dictionary<long, PosiEntity>();
+            var dic = new Dictionary<string, PosiEntity>();
             try
             {
                 var request = new SearchDetails(Id);
@@ -158,8 +158,8 @@ namespace HackTrip.Controllers.Models
 
                 result.pois.ForEach(x =>
                 {
-                    if (!dic.ContainsKey(Convert.ToInt64(x.id)))
-                        dic.Add(Convert.ToInt64(x.id), x);
+                    if (!dic.ContainsKey(x.id))
+                        dic.Add(x.id, x);
                 });
             }
             catch (Exception ex)

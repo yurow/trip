@@ -13,13 +13,25 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.Segments.OrderBy(x => x.Index))
-            {
-            <tr>
-                <td>@item.Topic</td>
-                <td>@item.Destination</td>
-                <td>@item.Distance</td>
-            </tr>
+            @{
+                if (Model.Segments != null)
+                {
+                    var list = Model.Segments.OrderBy(x => x.Index).ToArray();
+                    for (int i = 0; i < list.Length; i++)
+                    {
+                        var item = list[i];
+                        var nextitem = list[i + 1];
+                        <tr>
+                            <td>@item.Topic  @{if (i > 0) { @(nextitem.StartTime.ToString()); } }</td>
+                            <td> @("约"+Math.Round(nextitem.StepTime / 60 * 1.1) + "分钟路程")</td>
+                            <td>@nextitem.Distance  @{if (i + 1 >= list.Length - 1) { WriteLiteral("(终点)"); } }</td>
+                        </tr>
+
+                        if (i + 1 >= list.Length -1) { break; }
+                       
+                    }
+                }
+
             }
         </tbody>
     </table>

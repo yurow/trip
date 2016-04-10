@@ -19,6 +19,7 @@ namespace HackTrip.Adapter.Data
 
         public string Origin { get; set; }
         public string Destination { get; set; }
+        public long StepTime { get; set; }
         public Nullable<decimal> Distance { get; set; }
     }
 }

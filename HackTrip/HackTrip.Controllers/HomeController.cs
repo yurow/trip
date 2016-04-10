@@ -1,4 +1,5 @@
 ﻿using HackTrip.Adapter.AMapAPI;
+using HackTrip.Adapter.Data;
 using HackTrip.Models;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,8 @@ namespace HackTrip.Controllers
         {
             var list = new ScheduleBo().GetSort(model);
             //ResultModel r = new ResultModel() {  List = list};
-
+            //TripScope ts = new TripScope();
+            //var s = ts.GetLastTrip();
             return View(list);
         }    
     }

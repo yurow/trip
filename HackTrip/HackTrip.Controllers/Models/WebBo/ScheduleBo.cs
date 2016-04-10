@@ -69,7 +69,7 @@ namespace HackTrip.Controllers
         /// </summary>
         /// <param name="_resquest"></param>
         /// <returns></returns>
-        public bool GetSort(TestPostModel model)
+        public TripDataModel GetSort(TestPostModel model)
         {
             //var dic = new Dictionary<double, MapBase>();
             var list = new List<MapDistance>();
