@@ -28,16 +28,18 @@ namespace HackTrip.Controllers.Models.WebBo
         public bool AddTripData(List<MapDistance> model)
         {
             var List = new TripDataModel() { Origin = model.FirstOrDefault().EndItem.Lon + model.FirstOrDefault().EndItem.Lat };
-            model.AsParallel().ForAll(x =>
-                {
-                    var item = new List<SegmentDataModel>();
-                    int index = 0;
-                    MapBo.Instance.GetSenicSpotInfoById(x.EndItem.Lon+x.EndItem.Lat).Values.ToList().ForEach(m =>
-                        {
-                            item.Add(new SegmentDataModel() { Posi = m.location, Topic = m.name, Index = index, SegmentType = 1, Origin = m.name, StartTime = Convert.ToDateTime(Convert.ToSingle(DateTime.Now.AddDays(6).Date) + " 08:10:00").AddHours(index + 2),Distance = Convert.ToDecimal(x.DistanceId) });
-                            index =+ 1;
-                        });
-                });
+            for (int i = 1; i < model.Count; i++)
+            {
+                var item = new List<SegmentDataModel>();
+                int index = 0;
+                MapBo.Instance.GetSenicSpotInfoById(model[i].EndItem.Lon + model[i].EndItem.Lat).Values.ToList().ForEach(m =>
+                    {
+                        item.Add(new SegmentDataModel() { Posi = m.location, Topic = m.name, Index = index, SegmentType = 1, Origin = m.name, StartTime = Convert.ToDateTime(Convert.ToSingle(DateTime.Now.AddDays(6).Date) + " 06:10:00").AddHours(i + 2), Distance = Convert.ToDecimal(model[i].DistanceId) });
+                        
+                    });
+                List.Segments.AddRange(item);
+            }
+        
             return AddTripData(List);
         }
         //查询
